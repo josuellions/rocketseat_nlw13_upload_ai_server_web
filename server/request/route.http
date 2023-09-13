@@ -16,17 +16,28 @@ Content-Disposition: form-data; name="text"
 
 title
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
-Content-Disposition: form-data; name="file"; filename="example.mp3"
+Content-Disposition: form-data; name="file"; filename="example-02.mp3"
 Content-Type: audio/mpeg
 
-< ./example.mp3
+< ./example-02.mp3
 ------WebKitFormBoundary7MA4YWxkTrZu0gW--
 
 ###
 # @name transcription-video
-POST http://localhost:3333/video/a16a2515-41f7-4703-af8d-87381766331d/transcription
+POST http://localhost:3333/video/3f430e20-2936-444d-85e6-9667632a4e2a/transcription
 Content-Type: application/json
 
 {
-  "prompt": "teste"
+  "prompt": "automobilismo, esporte, futebol"
+}
+
+###
+# @name generate-ai-completion
+POST http://localhost:3333/ai/complete
+Content-Type: application/json
+
+{
+  "videoId":"3f430e20-2936-444d-85e6-9667632a4e2a",
+  "template": "Gere um resumo sucinto da transcrição do vídeo informado a seguir: '''{trascription}'''",
+  "temperature": 0.3 
 }
