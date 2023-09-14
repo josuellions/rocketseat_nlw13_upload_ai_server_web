@@ -38,6 +38,17 @@ Content-Type: application/json
 
 {
   "videoId":"1af543b4-6a62-4c8a-80e1-3e67fd11a858",
-  "template": "Gere um resumo sucinto da transcrição do vídeo informado a seguir: '''{trascription}'''",
+  "prompt": "Gere um resumo sucinto da transcrição do vídeo informado a seguir: '''{trascription}'''",
   "temperature": 0.3 
+}
+
+###
+# @name generate-ai-completion-nfse
+POST http://localhost:3333/ai/complete
+Content-Type: application/json
+
+{
+  "videoId":"b7afb6e8-5130-42be-bd0c-032e4d69ea6b",
+  "prompt": "encontre o Número da Nota, Data emissão, CNPJ prestador, CNPJ do tomador, UF do tomador, número do código serviço, valor do ISS, valor INSS, valor PIS/PASEP, valor Cofins, valor CSLL, valor IRPJ, valor  e valor total nota na transcrição do vídeo informado a seguir e retorne NOTA,DATA, CNPJPRESTADOR, CNPJTOMADOR, UF, CODIGO, ISS, INSS, PIS,COFINS,CSLL, IRPJ, TOTAL  separado por virgula se não encontra retorne null: '''{trascription}'''",
+  "temperature": 0 
 }
