@@ -27,7 +27,14 @@ export async function generateAICompletionRoute(app: FastifyInstance) {
         .send({ error: "Vídeo transcription was not generated yet" });
     }
 
-    const promptMessage = prompt.replace("{trascription}", video.transcription);
+    /*console.log(">>START PROMPT");
+    console.log(prompt);
+    console.log(">>END PROMPT");*/
+
+    const promptMessage = prompt.replace(
+      "{transcription}",
+      video.transcription
+    );
 
     const response = await openai.chat.completions.create({
       model: "gpt-3.5-turbo-16k",
